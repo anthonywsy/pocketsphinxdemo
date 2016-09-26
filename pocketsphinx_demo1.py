@@ -11,7 +11,7 @@ DATADIR = "test/data"
 
 # Create a decoder with certain mode
 config = Decoder.default_config()
-config.set_string('-hmm', path.join(MODELDIR, 'en-us/en-us')
+config.set_string('-hmm', path.join(MODELDIR, 'en-us/en-us'))
 config.set_string('-lm', path.join(MODELDIR, 'en-us/en-us.lm.bin'))
 config.set_string('-dict', path.join(MODELDIR, 'en-us/cmudict-en-us.dict'))
 decoder = Decoder(config)
