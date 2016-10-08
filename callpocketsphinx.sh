@@ -65,9 +65,11 @@ function replyVoiceMsg
 	#echo "GlobalOutputFile at replyVoiceMsg is $GlobalOutputFile"
 	reTxt="Thanks%20for%20your%20voice%20msg.%20You%20said:%20"
 	reTxt2="$(<$2)"
+	#echo "at replyVoiceMsg reTxt2 is $reTxt2"
 	reTxt3=" "
 	reTxt4="%20"
-	reTxt5=${retxt2//$reTxt3/$retxt4}
+	reTxt5=${reTxt2//$reTxt3/$reTxt4}
+	echo "at replyVoiceMsg reTxt5 is $reTxt5"
 	reTxt6="$reTxt%20$reTxt5"
 	url="https://api.telegram.org/bot$TOKEN/sendMessage?chat_id=$1&text=$reTxt6"
 	jsonRes=$(curl -s -X GET $url)
