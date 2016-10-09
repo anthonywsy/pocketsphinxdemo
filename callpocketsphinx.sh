@@ -6,17 +6,13 @@
 #TOKEN="(use your telegram bot token here)"
 GlobalOutputFile=""
 IncomeVoiceDir="voice"
-InOga=test/data/file_1.oga
-OutWav=test/data/file_1.wav
-OriginTxt=sample1.oga.txt
-ResultTxt=result.txt
 
 ##### Functions #####
 
 function logerr
 {
 	logdate="$(date +'%Y%m%d')"
-	LOGFILE="pocketsphinx.$logdate.log"
+	LOGFILE="pocketsphinx.$logdate.err.log"
 	echo "$(date) - $1" >> $LOGFILE
 }
 
@@ -43,7 +39,7 @@ function callwget
 		then
 			logerr "At callwget - file_path is null"
 		else
-			echo "start to download the voice file"
+			#echo "start to download the voice file"
 			filePath="${filePath%\"}"
 			filePath="${filePath#\"}"
 			url="https://api.telegram.org/file/bot$TOKEN/$filePath"
@@ -63,13 +59,13 @@ function replyVoiceMsg
 
 	#echo "$2"
 	#echo "GlobalOutputFile at replyVoiceMsg is $GlobalOutputFile"
-	reTxt="Thanks%20for%20your%20voice%20msg.%20You%20said:%20"
+	reTxt="You%20said:%20"
 	reTxt2="$(<$2)"
 	#echo "at replyVoiceMsg reTxt2 is $reTxt2"
 	reTxt3=" "
 	reTxt4="%20"
 	reTxt5=${reTxt2//$reTxt3/$reTxt4}
-	echo "at replyVoiceMsg reTxt5 is $reTxt5"
+	#echo "at replyVoiceMsg reTxt5 is $reTxt5"
 	reTxt6="$reTxt%20$reTxt5"
 	url="https://api.telegram.org/bot$TOKEN/sendMessage?chat_id=$1&text=$reTxt6"
 	jsonRes=$(curl -s -X GET $url)
@@ -83,7 +79,7 @@ function replyVoiceMsg
 
 function replyTextMsg
 {
-	reTxt="Thanks%20for%20your%20text%20msg."
+	reTxt="I%20cannot%20recognize%20your%20text%20msg."
 	url="https://api.telegram.org/bot$TOKEN/sendMessage?chat_id=$1&text=$reTxt"
 	jsonRes=$(curl -s -X GET $url)
 	ok=$(echo $jsonRes | jq .ok)
