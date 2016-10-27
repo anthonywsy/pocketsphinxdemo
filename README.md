@@ -28,8 +28,8 @@ HOW IT WORKS
 4. Finally, reply the text content back to telegram bot.
   
 THANKS TO  
-Thanks to telegram bot's HTTP request API.  
-Thanks to sphinx.  
+Thanks to telegram bot's HTTP GET/POST API. With this API, we don't need to rent a server to deal with the message.    
+Thanks to sphinx.    
   
 CONTACT US  
 Any question please email to anthony(at)nicodemus.club  
