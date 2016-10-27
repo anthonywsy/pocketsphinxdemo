@@ -21,6 +21,16 @@ GET IT WORK
 2. Input the telegram bot token to the script  
 3. Execute this script  
   
+HOW IT WORKS  
+1. The script will call the telegram bot API via HTTP request to get voice message. Repeat this step every serveral seconds.  
+2. When it download a voice file (.oga), it will conver the file to .wav via ffmpeg.  
+3. Then deal with the file by pocketsphinx, to conver it to .txt file.  
+4. Finally, reply the text content back to telegram bot.
+  
+THANKS TO  
+Thanks to telegram bot's HTTP request API.  
+Thanks to sphinx.  
+  
 CONTACT US  
 Any question please email to anthony(at)nicodemus.club  
   
