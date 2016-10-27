@@ -3,7 +3,7 @@
 #2016-09-27
 
 ##### Parameters #####
-#TOKEN="(use your telegram bot token here)"
+TOKEN="(use your telegram bot token here)"
 GlobalOutputFile=""
 IncomeVoiceDir="voice"
 
